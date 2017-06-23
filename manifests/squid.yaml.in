@@ -25,6 +25,8 @@ spec:
         - name: spice-proxy
           image: rmohr/spice-squid:latest
           imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsNonRoot: true
           ports:
             - containerPort: 3128
               name: "spice-proxy"

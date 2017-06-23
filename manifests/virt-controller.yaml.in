@@ -25,6 +25,9 @@ spec:
       - name: virt-controller
         image: {{ docker_prefix }}/virt-controller:{{ docker_tag }}
         imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 111
         command:
             - "/virt-controller"
             - "--launcher-image"
